@@ -4,9 +4,6 @@ with open('input.txt') as f:
 
 n = len(lines[0]) #Length of one binary number
 
-gamma_bits = []
-epsilon_bits = []
-
 def gamma():
   bits = []
   for i in range(0,n-1):
