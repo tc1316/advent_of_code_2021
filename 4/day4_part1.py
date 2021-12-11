@@ -13,6 +13,8 @@ boards = []
 for i in range(0,len(rows),5):
   boards.append(np.array(rows[i:i+5]))
 
+def sum_unmarked(arr):
+  return int(np.sum(arr, where=arr >-1))
 
 def bingo():
   for i in random:
@@ -22,14 +24,14 @@ def bingo():
            
       for r in range(board.shape[0]):
         if np.all(board[r] == -1) or np.all(board[:,r] == -1):
-          return [i,boards[count % len(boards)]]
+          # return [i,boards[count % len(boards)]]
+          return sum_unmarked(board)*i
    
       count += 1
 
-winning_number =  bingo()[0]
-bingo_array = bingo()[1]
+# winning_number =  bingo()[0]
+# bingo_array = bingo()[1]
 
-def sum_unmarked(arr):
-  return int(np.sum(arr, where=arr >-1))
 
-print(sum_unmarked(bingo_array)*winning_number)
+print(bingo())
+# print(sum_unmarked(bingo_array)*winning_number)
