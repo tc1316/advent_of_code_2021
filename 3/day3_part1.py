@@ -2,6 +2,8 @@ lines = []
 with open('input.txt') as f:
     lines = f.readlines()
 
+print(lines)
+
 n = len(lines[0]) #Length of one binary number
 
 def gamma():

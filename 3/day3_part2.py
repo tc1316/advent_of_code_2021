@@ -7,7 +7,7 @@ n = len(lines[0]) #Length of one binary number
 def oxygen(): #Find most common value
   nums = lines
 
-  for i in range(0,n-1):
+  for i in range(n-1):
     zeroes = 0
     ones = 0
 
@@ -28,7 +28,7 @@ def oxygen(): #Find most common value
 def co2(): #Find least common value
   nums = lines
 
-  for i in range(0,n-1):
+  for i in range(n-1):
     zeroes = 0
     ones = 0
 
