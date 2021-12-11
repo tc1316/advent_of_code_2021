@@ -17,26 +17,16 @@ def sum_unmarked(arr):
   return int(np.sum(arr, where=arr >-1))
 
 def bingo():
-  mostpasses = 0
   currenthighest = 0
   for i in random:
-    count = 0
-    for board in boards:
-      bingo = False
+     for board in boards:
       board[board==i] = -1
             
       for r in range(board.shape[0]):
-        if (np.all(board[r] == -1) or np.all(board[:,r] == -1)) and bingo == False:
-          bingo = True
+        if (np.all(board[r] == -1) or np.all(board[:,r] == -1)):
           val = sum_unmarked(board)
-          if mostpasses == 0:
-            currenthighest = val*i
-            mostpasses = count 
-          elif count > mostpasses:
-            currenthighest = val*i
-            mostpasses = count
+          currenthighest = val*i
           board.fill(-2)
-    count += 1
   return currenthighest
 
 print(bingo())
