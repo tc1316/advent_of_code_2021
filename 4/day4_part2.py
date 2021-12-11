@@ -17,23 +17,15 @@ def sum_unmarked(arr):
   return int(np.sum(arr, where=arr >-1))
 
 def bingo():
-  currenthighest = 0
   for i in random:
-     for board in boards:
+    for board in boards:
       board[board==i] = -1
             
       for r in range(board.shape[0]):
         if (np.all(board[r] == -1) or np.all(board[:,r] == -1)):
           val = sum_unmarked(board)
           currenthighest = val*i
-          board.fill(-2)
+          board.fill(-2) # Marks bingo'd boards as uncheckable next iteration
   return currenthighest
 
 print(bingo())
-
-# winning_number =  bingo()[0]
-# bingo_array = bingo()[1]
-
-
-# print(sum_unmarked(bingo_array)*winning_number)
-
