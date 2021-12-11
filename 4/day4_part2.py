@@ -13,27 +13,37 @@ boards = []
 for i in range(0,len(rows),5):
   boards.append(np.array(rows[i:i+5]))
 
-
-def bingo():
-  for i in random:
-    count = 0
-    for board in boards:
-      board[board==i] = -1
-           
-      for r in range(board.shape[0]):
-        if np.all(board[r]==-1) or np.all(board[:,r] == -1):
-          return [i,boards[count % len(boards)]]
-          
-      # for c in range(board.shape[0]):
-      #   if np.all(board[:,c] == -1):
-      #     return [i,boards[count % len(boards)]]
-      
-      count += 1
-
-winning_number =  bingo()[0]
-bingo_array = bingo()[1]
-
 def sum_unmarked(arr):
   return int(np.sum(arr, where=arr >-1))
 
-print(sum_unmarked(bingo_array)*winning_number)
+def bingo():
+  mostpasses = 0
+  currenthighest = 0
+  for i in random:
+    count = 0
+    for board in boards:
+      bingo = False
+      board[board==i] = -1
+            
+      for r in range(board.shape[0]):
+        if (np.all(board[r] == -1) or np.all(board[:,r] == -1)) and bingo == False:
+          bingo = True
+          val = sum_unmarked(board)
+          if mostpasses == 0:
+            currenthighest = val*i
+            mostpasses = count 
+          elif count > mostpasses:
+            currenthighest = val*i
+            mostpasses = count
+          board.fill(-2)
+    count += 1
+  return currenthighest
+
+print(bingo())
+
+# winning_number =  bingo()[0]
+# bingo_array = bingo()[1]
+
+
+# print(sum_unmarked(bingo_array)*winning_number)
+

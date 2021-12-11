@@ -3,7 +3,7 @@ import numpy as np
 random = []
 with open('random.txt') as f:
   for line in f:
-    random += [int(x) for x in line.split(',')] 
+    random += [int(x) for x in line.split(',')]
 
 rows = []
 with open('bingo.txt') as f:
@@ -21,13 +21,9 @@ def bingo():
       board[board==i] = -1
            
       for r in range(board.shape[0]):
-        if np.all(board[r]==-1) or np.all(board[:,r] == -1):
+        if np.all(board[r] == -1) or np.all(board[:,r] == -1):
           return [i,boards[count % len(boards)]]
-          
-      # for c in range(board.shape[0]):
-      #   if np.all(board[:,c] == -1):
-      #     return [i,boards[count % len(boards)]]
-      
+   
       count += 1
 
 winning_number =  bingo()[0]
