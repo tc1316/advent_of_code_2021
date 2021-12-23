@@ -9,7 +9,7 @@
 | 5           | :heavy_check_mark:  |   :heavy_check_mark: |
 | 6           | :heavy_check_mark:   |  ❌ |
 | 7 | ✔ | ✔ |
-| 8 | | |
+| 8 | ✔ | ❌ |
 | 9 | | |
 | 10 | | |
 | 11 | | |
