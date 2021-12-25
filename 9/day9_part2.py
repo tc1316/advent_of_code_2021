@@ -30,7 +30,7 @@ def MirrorArrayFill(array, r, c):
   if array[r][c] < 0:
     return
 
-  array[r][c] -= 10
+  array[r][c] = -1
   mirror_array[r][c] = 1
   MirrorArrayFill(array, r-1, c)
   MirrorArrayFill(array, r, c-1)
