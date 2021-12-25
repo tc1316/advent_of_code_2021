@@ -21,8 +21,6 @@ def FindCorrupted():
         else:
           score += points[char]
           break
-      else:
-        stack.append(char)
   return score
   
 print(FindCorrupted())
