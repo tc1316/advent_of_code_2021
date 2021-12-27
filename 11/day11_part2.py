@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('test.txt') as f:
+with open('input.txt') as f:
   input = [list(line.strip()) for line in f]
   array = np.array([x for x in input]).astype(int)
 
@@ -17,10 +17,11 @@ def IncrementNeighbours(r, c):
     if rr >= 0 and cc >= 0 and rr < y_length and cc < x_length and array[rr][cc] != 0:
       array[rr][cc] += 1
 
-def CheckFlashes():
-  global count
-  flashed = True
 
+
+def CheckFlashes():
+  
+  flashed = True
   while flashed:
     flashed = False
     for r in range(y_length):
@@ -29,10 +30,16 @@ def CheckFlashes():
           array[r][c] = 0
           IncrementNeighbours(r,c)
           flashed = True
-          count += 1
-  return count
 
-for i in range(100):
+         
+step = 0
+while True:
+  step += 1
   array = np.add(array, ones)
   CheckFlashes()
-  print(count)
+  if np.all(array == 0):
+      break
+
+print(step)
+
+
